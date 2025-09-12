@@ -1,7 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Name:YASHWANTH R
-## Reg no:212224240188
-## Date:28.05.2025
+## Date: 29/08/2025
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the list of protocols in TCP/IP Protocol Suite.
@@ -38,82 +36,132 @@ Start the server script and check for errors.
 Open a browser and navigate to http://127.0.0.1:8000 (or the assigned port).
 
 ## PROGRAM:
-HTML
-```
-<html>
-<head>
-<title> My Web Server</title>
-</head>
-<body>
-<table border="1" align="center" cellpadding="10" bgcolor="blue">
-<caption><h1>List of Protocols in TCP/IP Protocol Suite</h1></caption>
-<tr>
-   <th>S.No.</th><th>Name of the Layer</th><th>Name of the Protocol</th>
-</tr>
-<tr>
-   <td>1.</td><td>Application Layer</td> <td>HTTP, FTP, DNS, Telnet</td>
-</tr>
-<tr>
-   <td>2.</td><td>Transport Layer</td> <td>TCP & UDP</td>
-</tr>
-<tr>
-    <td>3.</td><td>Network layer</td> <td>IPV4/IPV6</td>
-</tr>
-<tr>
-    <td>4.</td><td>Link layer</td> <td>Ethernet</td>
-</tr>
-</table>
-</body>
-</html>
-```
-PYTHON
-```
+
+Devloped by : YASHWANTH R
+
+Reg no : 212224240188
+
+```python
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
-content = """
-<html>
+content = """"
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title> My Web Server</title>
+    <title>TCP / IP PROTOCOLS</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFP9zs1zRTbw-P-Osmmg5hqaGtWJi0gNHASCbw8ycJlnm1K3AI_HRqAUtA06erx9X4SQA&usqp=CAU">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        table {
+            border: 2px solid white;
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 80%;
+        }
+
+        th {
+            background-color: #222;
+        }
+
+        tr,td{
+            align-items: center;
+            margin: 5px;
+            padding: 5px;
+        }
+        td:hover{
+            background-color: #222;
+        }
+        td{
+            border: 1px solid white;
+            margin: 10px;
+            padding: 10px;
+
+        }
+        
+
+    </style>
 </head>
 <body>
-<table border="1" align="center" cellpadding="10" bgcolor="blue">
-<caption><h1>List of Protocols in TCP/IP Protocol Suite</h1></caption>
-<tr>
-   <th>S.No.</th><th>Name of the Layer</th><th>Name of the Protocol</th>
-</tr>
-<tr>
-   <td>1.</td><td>Application Layer</td> <td>HTTP, FTP, DNS, Telnet</td>
-</tr>
-<tr>
-   <td>2.</td><td>Transport Layer</td> <td>TCP & UDP</td>
-</tr>
-<tr>
-    <td>3.</td><td>Network layer</td> <td>IPV4/IPV6</td>
-</tr>
-<tr>
-    <td>4.</td><td>Link layer</td> <td>Ethernet</td>
-</tr>
-</table>
+    <h1>TCP / IP PROTOCOLS</h1>
+    <table>
+        <tr>
+            <th>LAYERS</th>
+            <th colspan="6">PROTOCOLS</th>
+        </tr>
+        <tr>
+            <td>APPLICATION LAYER</td>
+            <td>HTTP</td>
+            <td>RDP</td>
+            <td>DNS</td>
+            <td>SMTP</td>
+            <td>TELNET</td>
+            <td>SNMP</td>
+        </tr>
+
+        <tr>
+            <td>TRANSPORT LAYER</td>
+            <td colspan="3">TCP</td>
+            <td colspan="3">UDP</td>
+        </tr>
+        <tr>
+            <td>INTERNET LAYER</td>
+            <td>IP</td>
+            <td>ICMP</td>
+            <td>IGMP</td>
+            <td>ARP</td>
+            <td colspan="2">IPSec</td>
+        </tr>
+        <tr>
+            <td>NETWORK ACCESS LAYER</td>
+            <td colspan="2">Ethernet (IEEE 802.3)</td>
+            <td colspan="2">Token Ring</td>
+            <td>PPP</td>
+            <td>Frame Relay</td>
+        </tr>
+    </table>
 </body>
-</html>
 """
+
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
         print("Get request received...")
-        self.send_response(200)
-        self.send_header("content-type", "text/html")
+        self.send_response(200) 
+        self.send_header("content-type", "text/html")       
         self.end_headers()
         self.wfile.write(content.encode())
 
-print("This is my webserver")
-server_address = ('',8000)
+print("This is my webserver") 
+server_address =('',8000)
 httpd = HTTPServer(server_address,MyServer)
 httpd.serve_forever()
+
+   
 ```
 
-
 ## OUTPUT:
-<img width="1666" height="1167" alt="image" src="https://github.com/user-attachments/assets/056b3fae-f333-44bf-8e26-c7d7d5930d82" />
+
+Refer to the following image to view the output of the program.
+
+<img width="1267" height="747" alt="image" src="https://github.com/user-attachments/assets/cf1a38dd-8593-4e20-a6d3-8fed446e1ce1" />
+
+
+
+
+
+TERMINAL
+<img width="1259" height="373" alt="image" src="https://github.com/user-attachments/assets/0bf3ac52-0e42-4c8a-ae42-2902e799f04a" />
+
+
+
+
 
 
 
